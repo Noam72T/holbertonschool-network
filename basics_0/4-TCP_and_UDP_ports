@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 #Bash script that displays listening ports that only shows listening sockets
-sudo netstat -tupn
+
+echo "Active Internet connections (only servers)"
+sudo netstat -tunlp | grep LISTEN
+echo ""
+echo "Active UNIX domain sockets (only servers)"
+sudo netstat -lxnp | grep LISTEN
+
