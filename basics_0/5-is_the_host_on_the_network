@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Check if the argument (IP address) is provided
+# Check if the argument (IP address) is provided.
 if [ -z "$1" ]; then
     echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
     exit 1
