@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Display all listening TCP and UDP sockets with associated PID and program name
+
+echo "Active Internet connections (only servers)"
+sudo netstat -tunlp | grep LISTEN
+echo ""
+echo -e "\nActive UNIX domain sockets (only servers)"
+sudo netstat -lxnp | grep LISTEN
