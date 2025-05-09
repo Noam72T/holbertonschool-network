@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 # Listen on 127.0.0.2 port 98 and print anything received
-# You need root to bind to ports < 1024
 nc -l 127.0.0.2 98
