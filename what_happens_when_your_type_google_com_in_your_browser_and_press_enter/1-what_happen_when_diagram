@@ -1,0 +1,45 @@
++------------------+
+|  Your Browser    |
+| (Type URL + Enter)
++--------+---------+
+         |
+         v
++------------------+
+|   DNS Resolver   | <--- DNS resolution
++--------+---------+
+         |
+         v
++------------------+
+|   Server IP      | <--- TCP connection to IP:443
+| (via TCP/IP)     |
++--------+---------+
+         |
+         v
++------------------+
+|   Firewall       | <--- Filters request
++--------+---------+
+         |
+         v
++---------------------------+
+|     Load Balancer        | <--- Distributes request
++------------+-------------+
+             |
+     +-------+--------+
+     |                |
+     v                v
++-----------+    +-----------+
+| Web Server|    | Web Server|
+| (e.g. NGINX)|   | (Static files) |
++-----+-----+    +-----+-----+
+      |                |
+      v                v
++---------------------------+
+|  Application Server       | <--- Handles logic
+|  (e.g. Python, Java)      |
++-------------+-------------+
+              |
+              v
+     +-------------------+
+     |    Database       | <--- Data read/write
+     +-------------------+
+

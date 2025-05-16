@@ -1,0 +1,84 @@
+What Happens When You Type https://www.google.com and Press Enter?
+
+1. Dns Lookup Findin the server
+
+Your browser doesn’t understand google.com directly—it needs an IP address like 142.250.190.78.
+
+So it checks:
+- Its own memory (cache),
+- Your computer's cache,
+- And if not found, it asks a DNS server (like Google’s 8.8.8.8).
+
+This DNS server goes through the internet’s DNS system to find Google’s real IP address.
+
+2.  TCP/IP – Connecting to Google
+
+With the IP address, your browser wants to talk to Google’s server.
+
+It uses TCP (Transmission Control Protocol) to start a 3-step handshake (SYN, SYN-ACK, ACK) — kind of like saying:
+
+"Hello, are you there?"
+"Yes, I am."
+"Great, let’s talk."
+
+This runs on top of IP (Internet Protocol), which handles the path your data takes over the internet.
+
+3. Firewall – Traffic Checkpoint
+
+Before going out to the internet, your request passes through firewalls (on your computer, router, or ISP).
+
+If port 443 (used for HTTPS) is open, it’s allowed through.
+
+4. HTTPS & SSL/TLS – Secure Communication
+
+Since it's HTTPS, your browser and Google use SSL/TLS to encrypt the data.
+
+This means:
+- Your browser checks Google’s certificate to make sure it's real.
+- They agree on a way to encrypt data (so nobody can spy on it).
+- Now, all your traffic is safe and encrypted.
+
+5. Load Balancer – Smart Traffic Distribution
+Your request goes to Google’s nearest data center.
+
+A load balancer decides which of Google’s many servers will answer, based on traffic, location, and speed.
+
+6. Web Server – First Stop
+
+The chosen web server accepts the request and checks what you need:
+
+- If it's a simple file (like a logo), it sends it directly.
+- If it’s a dynamic page (like search results), it passes the job to the application server.
+
+7. Application Server – Brain of the Operation
+
+This is where logic happens:
+- Checks if you're logged in.
+- Reads cookies.
+- Prepares personalized content.
+- Talks to other services if needed.
+
+8. Database – Where Data Lives
+Sometimes the application server needs to read or write data:
+
+- Your past searches
+- User settings
+- Other dynamic content
+
+Google uses advanced databases like Bigtable and Spanner for this.
+
+9. Rendering the Page in Your Browser
+The server sends back HTML, CSS, and JavaScript.
+
+Your browser:
+- Builds the page (DOM),
+- Applies styles (CSS),
+- Runs scripts (JavaScript),
+- Loads images and fonts.
+
+In the end, you see Google’s homepage!
+
+Final Thoughts :
+
+All this happens in under a second!
+Understanding this flow helps front-end devs, backend engineers, and SREs build faster, safer, and more reliable web applications.
